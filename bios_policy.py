@@ -151,7 +151,7 @@ else:
     print("FAILED!")
 
 # Create Base BIOS Profile
-mo = BiosVProfile(parent_mo_or_dn="org-root", name="test-bios")
+mo = BiosVProfile(parent_mo_or_dn="org-root", name=policy_name)
 
 # Modify Main Objects
 cdn_control = BiosVfConsistentDeviceNameControl(parent_mo_or_dn=mo, vp_cdn_control="platform-default")
@@ -232,7 +232,7 @@ memory_ras_config = BiosVfSelectMemoryRASConfiguration(parent_mo_or_dn=mo, vp_se
 
 # Create BIOS Policy in UCSM
 print("Creating BIOS Policy...", end='')
-# handle.add_mo(mo)
+handle.add_mo(mo)
 
 try:
     handle.commit()
